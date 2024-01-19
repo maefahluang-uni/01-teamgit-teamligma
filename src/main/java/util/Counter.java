@@ -1,5 +1,7 @@
 package util;
 
+import java.util.StringTokenizer;
+
 public class Counter {
 
 	public int _ctr;
@@ -56,7 +58,11 @@ public class Counter {
 	}
 
 
-  public void incrementToPrime() {
+   public Counter() {
+        this._ctr = 0;
+    }
+
+    public void incrementToPrime() {
         _ctr = getNextPrime(_ctr + 1);
     }
 
@@ -78,6 +84,20 @@ public class Counter {
         }
         return num;
     }
+
+    // Check if a number is prime
+    private boolean isPrime(int num) {
+        if (num < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 	// TODO: dev3- count the frequency of word in sentence,
 	// refactor source code from dev1 and dev2
