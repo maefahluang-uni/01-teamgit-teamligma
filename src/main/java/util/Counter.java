@@ -1,9 +1,7 @@
 package util;
 
-import java.util.StringTokenizer;
-
-//This is an example (faulty) class to be used for A4 Task1 and Task2
 public class Counter {
+
 	public int _ctr;
 	public int _multiplier;
 
@@ -58,15 +56,28 @@ public class Counter {
 	}
 
 
-	// TODO: dev2- method for increment to closest prime number
-	public void incrementToPrime() {
-		_ctr = -99;
-	}
+  public void incrementToPrime() {
+        _ctr = getNextPrime(_ctr + 1);
+    }
 
-	// TODO: dev2- method for decrement to closest prime number
-	public void decrementToPrime() {
-		_ctr = -99;
-	}
+    public void decrementToPrime() {
+        _ctr = getPreviousPrime(_ctr - 1);
+    }
+
+    // Utility methods to find the next and previous primes
+    private int getNextPrime(int num) {
+        while (!isPrime(num)) {
+            num++;
+        }
+        return num;
+    }
+
+    private int getPreviousPrime(int num) {
+        while (!isPrime(num)) {
+            num--;
+        }
+        return num;
+    }
 
 	// TODO: dev3- count the frequency of word in sentence,
 	// refactor source code from dev1 and dev2
@@ -82,5 +93,4 @@ public class Counter {
 	
 		_ctr = count;
 	}
-
 }
